@@ -39,15 +39,14 @@ export async function getEmployeesById(req: Request, res: Response) {
 
 //adds ONE employee
 export async function addEmployees(
-  req: Request<{}, {}, EmployeesInput['body']>,
+  req: Request<object, object, EmployeesInput['body']>,
   res: Response,
 ) {
   const body = req.body;
   try {
     const employees = await createEmployeesService(body);
     return res.status(StatusCodes.CREATED).send(employees);
-  } catch (e: any) {
-    log.error(e);
+  } catch (e) {
     if (e.code === 11000) {
       return res.status(StatusCodes.CONFLICT).send('employee already exists');
     }

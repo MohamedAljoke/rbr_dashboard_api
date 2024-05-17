@@ -9,7 +9,7 @@ export async function finalAllEmployeesService() {
   return EmployeesModel.find()
     .select('-__v')
     .lean({
-      transform: (doc, ret) => {
+      transform: (doc) => {
         //transforming _id to id -> (helps frontend to use other dbs not necessary could do later the inverse if need it)
         doc.id = doc._id;
         delete doc._id;
@@ -30,7 +30,7 @@ export async function findEmployeesById(
   return EmployeesModel.findOne(query, {}, option)
     .select('-__v')
     .lean({
-      transform: (doc, ret) => {
+      transform: (doc) => {
         //transforming _id to id -> (helps frontend to use other dbs not necessary could do later the inverse if need it)
         doc.id = doc._id;
         delete doc._id;

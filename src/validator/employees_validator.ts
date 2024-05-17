@@ -1,4 +1,4 @@
-import zod, { object, string, TypeOf, array } from 'zod';
+import zod, { object, string, TypeOf } from 'zod';
 
 const employeeObject = object({
   name: zod
