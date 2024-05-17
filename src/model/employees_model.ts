@@ -10,7 +10,7 @@ export interface EmployeesDocument extends mongoose.Document {
 }
 
 //  - Validar os campos do formulário antes de enviar. ?? não tinha na tarefa os requisitos dos campos
-// colocar todos como required
+// colocar todos como required com max de 254 char
 const employeesSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
