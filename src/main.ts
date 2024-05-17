@@ -1,3 +1,4 @@
+import connectToMongo from './connections/mongo';
 import createServer from './connections/server';
 import log from './utils/logger';
 
@@ -7,5 +8,5 @@ const app = createServer();
 
 app.listen(port, async () => {
   log.info(`Application working on port: ${port}`);
-  //TODO: connect to mongo
+  await connectToMongo();
 });
