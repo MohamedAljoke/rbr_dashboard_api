@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "2a0addf4-cc78-49d3-95d8-5193963eb0a4",
+		"name": "rbr-digital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18883596"
+	},
+	"item": [
+		{
+			"name": "employees",
+			"item": [
+				{
+					"name": "add employees",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"some name 1\",\r\n    \"position\":\"full stack\",\r\n    \"department\":\"some department\",\r\n    \"admissionDate\":\"some date\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{loca-url}}/employees",
+							"host": [
+								"{{loca-url}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update employee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"some name1423\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{loca-url}}/employees/6646c620d59e1a79018d0cb9",
+							"host": [
+								"{{loca-url}}"
+							],
+							"path": [
+								"employees",
+								"6646c620d59e1a79018d0cb9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employees list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{loca-url}}/employees",
+							"host": [
+								"{{loca-url}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employees by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{loca-url}}/employees/6646c13a14bf5c329dbe0f88",
+							"host": [
+								"{{loca-url}}"
+							],
+							"path": [
+								"employees",
+								"6646c13a14bf5c329dbe0f88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{loca-url}}/employees/6646c620d59e1a79018d0cb11",
+							"host": [
+								"{{loca-url}}"
+							],
+							"path": [
+								"employees",
+								"6646c620d59e1a79018d0cb11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "loca-url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		}
+	]
+}
