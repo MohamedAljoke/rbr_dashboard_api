@@ -4,6 +4,7 @@ services:
   mongodb:
     image: mongo:latest
     container_name: mongodb
+
     ports:
       - '27017:27017'
     environment:
@@ -11,6 +12,19 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
       - mongo-data:/data/db
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rbr_api
+    command: 'npm run start:dev'
+    environment:
+      dbUri: "mongodb://root:password@host.docker.internal:27017/"
+    ports:
+      - '8000:8000'
+    depends_on:
+      - mongodb
 
 volumes:
   mongo-data:
