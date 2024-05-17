@@ -3,8 +3,9 @@ import employeesRoutes from './employees_routes';
 
 const api = Router();
 
-api.get('version', (_: Request, res: Response) => {
-  res.json({ version: '1.0.0' });
+export const appVersion = '1.0.0';
+api.get('/version', (_: Request, res: Response) => {
+  return res.status(200).json({ version: appVersion });
 });
 
 api.use('/employees', employeesRoutes);
